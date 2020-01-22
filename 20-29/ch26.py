@@ -1,14 +1,14 @@
-def recuring_cycle(n):
-    x = str(1/n)
-    # Todo : there must be a math tricks to get the recuring cycle of a fraction
-    # Because due to the fact that python truncate float of more ~14digitts, it's impossible to do in the naive way
-    for x in range(
+def rcycle(n):
+    lpow=1
+    while True:
+        for mpow in range(lpow-1, -1, -1):
+            if (10**lpow-10**mpow) % n == 0:
+                return lpow-mpow
+        lpow += 1
 
 m = 0
-md = 0
-for d in range(1,1000):
-    l = len(recuring_cycle(d))
-    if l > md :
-        m = d
-
-print(m, md)
+for i in range(1, 1000):
+    r = rcycle(i)
+    if r > m:
+        m = r
+        print("new max: 1/{} : {}".format(i, rcycle(i)))
