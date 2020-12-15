@@ -15,8 +15,7 @@ def get_mutated_primes(s, digit):
 n = 3
 while True:
     if is_prime(n):
-
-        s = str(n//10) # its useless to replace the last digit
+        s = str(n) # its useless to replace the last digit
         for digit in range(10):
             cnt =  s.count(str(digit))
             if cnt >= 2:
